@@ -1,11 +1,3 @@
-template = {
-	"red": 18,
-	"yellow": 18,
-	"green": 18,
-	"blue" : 18,
-	"purple" : 18,
-	"black" : 18,
-}
 Factions = {
 	"Muaat" : {
 		"red": 1,
@@ -165,12 +157,24 @@ def score(arangement):
 	for i in range(0,len(arangement[0])):
 		sum = sum + Factions[arangement[0][i]][arangement[1][i]]
 	return sum
+factions = []
+i = 0
+while True:
+	print(factions)
+	print("Enter name of faction")
+	dumb = input("")
+	try:
+		Factions[dumb]
+		factions.append(dumb)
+	except KeyError:
+		print("Not a valid faction")
+
+	if len(factions) == 6:
+		break
 
 
 colors = []
 permute(["red", "yellow", "green", "blue", "purple", "black"], colors)
-
-factions = ["JolNar","Xxcha", "Yssaril","Ghosts", "Sol", "Winnu"]
 
 bestScore = 10000
 answer = []
@@ -183,8 +187,3 @@ for setup in colors:
 
 print(factions)
 print(answer)
-
-test = [factions,["red","yellow", "green", "blue", "purple", "black"]]
-# test1 = [["Muaat"],["red"]]
-# test2 = [[Muaat,JolNar],["red","yellow"]]
-print (score(test))
