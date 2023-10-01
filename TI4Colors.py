@@ -238,16 +238,6 @@ Factions = {
 		"black" : 5,
 		"orange" : 0,
 		"pink" : 0,
-	},
-	0 : {
-		"red": 0,
-    "yellow" : 0,
-    "green" : 0,
-    "blue" : 0,
-    "purple" : 0,
-		"black" : 0,
-    "orange" : 0,
-    "pink" : 0,
 	}
 }
 ####Stolen from the internet
@@ -286,12 +276,6 @@ def getFactions():
 			print("Not a valid faction")
 
 		if len(factions) == numFactions:
-			break
-	
-	while True:
-		factions.append(0)
-
-		if len(factions) == 8:
 			break
 
 	return factions
