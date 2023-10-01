@@ -269,8 +269,9 @@ def getFactions():
 			numFactions = num
 		else:
 			print("Not a valid number")
+	
 	factions = []
-	i = 0
+
 	while True:
 		print(factions)
 		print("Enter name of faction")
@@ -290,9 +291,9 @@ def bestSetup(factions, setups):
 	bestScore = float("-inf")
 	colours = []
 	for setup in setups:
-		cost = score([factions, setup])
-		if cost > bestScore:
-			bestScore = cost
+		score = score([factions, setup])
+		if score > bestScore:
+			bestScore = score
 			colours = setup
 	return colours
 
