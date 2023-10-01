@@ -255,40 +255,49 @@ def permute(a, results):
                 results.insert(len(results), result)
 ####/stolen
 
-
 def score(arangement):
-	prod = 1
-	for i in range(0,len(arangement[0])):
-		prod *= 1 + Factions[arangement[0][i]][arangement[1][i]]
-	return prod
+		prod = 1
+		for i in range(0,len(arangement[0])):
+			prod *= 1 + Factions[arangement[0][i]][arangement[1][i]]
+		return prod
 
-factions = []
-i = 0
-while True:
-	print(factions)
-	print("Enter name of faction")
-	dumb = input("")
-	try:
-		Factions[dumb]
-		factions.append(dumb)
-	except KeyError:
-		print("Not a valid faction")
+def getFactions():
+	numFactions = int(input("How many factions? "))
+	factions = []
+	i = 0
+	while True:
+		print(factions)
+		print("Enter name of faction")
+		dumb = input("")
+		try:
+			Factions[dumb]
+			factions.append(dumb)
+		except KeyError:
+			print("Not a valid faction")
 
-	if len(factions) == 8:
-		break
+		if len(factions) == numFactions:
+			break
 
+def bestSetup(factions, setups):
+	bestScore = float("-inf")
+	colours = []
+	for setup in setups:
+		cost = score([factions, setup])
+		if cost > bestScore:
+			bestScore = cost
+			colours = setup
+	return colours
 
-colors = []
-permute(["red", "yellow", "green", "blue", "purple", "black", "orange", "pink"], colors)
+def main():
+	factions = getFactions();
 
-bestScore = float("-inf")
-answer = []
-for setup in colors:
-	cost = score([factions,setup])
-	if cost > bestScore:
-		bestScore = cost
-		answer = setup
+	setups = []
+	permute(["red", "yellow", "green", "blue", "purple", "black", "orange", "pink"], setups)
 
+	colours = bestSetup(factions, setups)
+	answers = dict(zip(factions, colours))
 
-print(factions)
-print(answer)
+	print(answers)
+
+if __name__ == "__main__":
+	main()
