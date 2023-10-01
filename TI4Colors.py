@@ -179,7 +179,7 @@ Factions = {
 		"orange" : 0,
 		"pink" : 10,
 	},
-	"The Universities of Jol Nar" : {
+	"The Universities of Jol-Nar" : {
 		"red": 0,
 		"yellow" : 0,
 		"green" : 3,
@@ -261,6 +261,7 @@ def score(arangement):
 	for i in range(0,len(arangement[0])):
 		prod *= 1 + Factions[arangement[0][i]][arangement[1][i]]
 	return prod
+
 factions = []
 i = 0
 while True:
@@ -280,11 +281,11 @@ while True:
 colors = []
 permute(["red", "yellow", "green", "blue", "purple", "black", "orange", "pink"], colors)
 
-bestScore = float("inf")
+bestScore = float("-inf")
 answer = []
 for setup in colors:
 	cost = score([factions,setup])
-	if cost < bestScore:
+	if cost > bestScore:
 		bestScore = cost
 		answer = setup
 
