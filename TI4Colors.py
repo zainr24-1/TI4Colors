@@ -262,7 +262,13 @@ def score(arangement):
 		return prod
 
 def getFactions():
-	numFactions = int(input("How many factions? "))
+	numFactions = 0;
+	while numFactions == 0:
+		num = int(input("How many factions? "))
+		if num <= 8:
+			numFactions = num
+		else:
+			print("Not a valid number")
 	factions = []
 	i = 0
 	while True:
