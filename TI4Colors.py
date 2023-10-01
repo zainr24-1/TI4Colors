@@ -238,6 +238,16 @@ Factions = {
 		"black" : 5,
 		"orange" : 0,
 		"pink" : 0,
+	},
+	0 : {
+		"red": 0,
+    "yellow" : 0,
+    "green" : 0,
+    "blue" : 0,
+    "purple" : 0,
+		"black" : 0,
+    "orange" : 0,
+    "pink" : 0,
 	}
 }
 ####Stolen from the internet
@@ -268,15 +278,23 @@ def getFactions():
 	while True:
 		print(factions)
 		print("Enter name of faction")
-		dumb = input("")
+		name = input("")
 		try:
-			Factions[dumb]
-			factions.append(dumb)
+			Factions[name]
+			factions.append(name)
 		except KeyError:
 			print("Not a valid faction")
 
 		if len(factions) == numFactions:
 			break
+	
+	while True:
+		factions.append(0)
+
+		if len(factions) == 8:
+			break
+
+	return factions
 
 def bestSetup(factions, setups):
 	bestScore = float("-inf")
