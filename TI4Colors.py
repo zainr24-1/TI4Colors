@@ -1,12 +1,12 @@
 Factions = {
 	"The Arborec" : {
 		"red": 0,
-		"yellow" : 1,
+		"yellow" : 2,
 		"green" : 10,
 		"blue" : 0,
 		"purple" : 0,
-		"black" : 6,
-		"orange" : 0,
+		"black" : 4,
+		"orange" : 1,
 		"pink" : 0,
 	},
 	"The Argent Flight" : {
@@ -99,7 +99,7 @@ Factions = {
 		"orange" : 0,
 		"pink" : 0,
 	},
-	"The Mahact Gene Sorcerors" : {
+	"The Mahact Gene Sorcerers" : {
 		"red": 0,
 		"yellow" : 9,
 		"green" : 0,
@@ -110,14 +110,14 @@ Factions = {
 		"pink" : 3,
 	},
 	"The Mentak Coalition" : {
-		"red": 1,
-		"yellow" : 2,
+		"red": 0,
+		"yellow" : 3,
 		"green" : 1,
 		"blue" : 0,
 		"purple" : 2,
-		"black" : 6,
+		"black" : 5,
 		"orange" : 5,
-		"pink" : 0,
+		"pink" : 1,
 	},
 	"The Naalu Collective" : {
 		"red": 0,
@@ -125,28 +125,28 @@ Factions = {
 		"green" : 3,
 		"blue" : 0,
 		"purple" : 1,
-		"black" : 4,
+		"black" : 3,
 		"orange" : 4,
-		"pink" : 0,
+		"pink" : 1,
 	},
 	"The Naaz-Rokha Alliance" : {
 		"red": 0,
 		"yellow" : 5,
-		"green" : 10,
+		"green" : 9,
 		"blue" : 0,
 		"purple" : 0,
-		"black" : 1,
+		"black" : 2,
 		"orange" : 1,
 		"pink" : 0,
 	},
 	"The Nekro Virus" : {
-		"red": 10,
+		"red": 9,
 		"yellow" : 0,
 		"green" : 0,
-		"blue" : 0,
+		"blue" : 1,
 		"purple" : 0,
-		"black" : 7,
-		"orange" : 0,
+		"black" : 6,
+		"orange" : 1,
 		"pink" : 0,
 	},
 	"The Nomad" : {
@@ -204,10 +204,10 @@ Factions = {
 		"yellow" : 3,
 		"green" : 0,
 		"blue" : 0,
-		"purple" : 7,
+		"purple" : 6,
 		"black" : 0,
 		"orange" : 0,
-		"pink" : 7,
+		"pink" : 8,
 	},
 	"The Xxcha Kingdom" : {
 		"red": 0,
@@ -264,7 +264,10 @@ def score(arangement):
 def getFactions():
 	numFactions = 0;
 	while numFactions == 0:
-		num = int(input("How many factions? "))
+		try:
+			num = int(input("How many factions? \n"))
+		except ValueError:
+			print("Not a valid number")
 		if num <= 8:
 			numFactions = num
 		else:
@@ -291,9 +294,9 @@ def bestSetup(factions, setups):
 	bestScore = float("-inf")
 	colours = []
 	for setup in setups:
-		score = score([factions, setup])
-		if score > bestScore:
-			bestScore = score
+		cost = score([factions, setup])
+		if cost > bestScore:
+			bestScore = cost
 			colours = setup
 	return colours
 
