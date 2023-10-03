@@ -21,7 +21,17 @@ def score(arangement):
 			prod *= 1 + FACTIONS[arangement[0][i]][arangement[1][i]]
 		return prod
 
-def getFactions():
+def bestSetup(factions, setups):
+	bestScore = float("-inf")
+	colours = []
+	for setup in setups:
+		cost = score([factions, setup])
+		if cost > bestScore:
+			bestScore = cost
+			colours = setup
+	return colours
+
+def getNumFactions():
 	numFactions = 0;
 	while numFactions == 0:
 		try:
@@ -32,6 +42,9 @@ def getFactions():
 			numFactions = num
 		else:
 			print("Not a valid number")
+		return numFactions
+
+def getFactions(numFactions):
 	
 	factions = []
 
@@ -45,23 +58,14 @@ def getFactions():
 		except KeyError:
 			print("Not a valid faction")
 
-		if len(factions) == numFactions:
+		if len(factions) >= numFactions:
 			break
 
 	return factions
 
-def bestSetup(factions, setups):
-	bestScore = float("-inf")
-	colours = []
-	for setup in setups:
-		cost = score([factions, setup])
-		if cost > bestScore:
-			bestScore = cost
-			colours = setup
-	return colours
-
 def main():
-	factions = getFactions();
+	n = getNumFactions()
+	factions = getFactions(n)
 
 	setups = []
 	permute(["red", "yellow", "green", "blue", "purple", "black", "orange", "pink"], setups)
