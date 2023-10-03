@@ -33,6 +33,7 @@ def bestSetup(factions, setups):
 
 def getNumFactions():
 	numFactions = 0;
+	
 	while numFactions == 0:
 		try:
 			num = int(input("How many factions? \n"))
@@ -42,10 +43,10 @@ def getNumFactions():
 			numFactions = num
 		else:
 			print("Not a valid number")
+		
 		return numFactions
 
-def getFactions(numFactions):
-	
+def getFactions(numFactions):	
 	factions = []
 
 	while True:

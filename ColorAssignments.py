@@ -85,9 +85,9 @@ FACTIONS = {
 		"green" : 0,
 		"blue" : 11,
 		"purple" : 1,
-		"black" : 3,
+		"black" : 2,
 		"orange" : 0,
-		"pink" : 2,
+		"pink" : 3,
 	},
 	"The L1Z1X Mindnet" : {
 		"red": 4,
