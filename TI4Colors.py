@@ -44,7 +44,7 @@ def getNumFactions():
 		else:
 			print("Not a valid number")
 		
-		return numFactions
+	return numFactions
 
 def getFactions(numFactions):	
 	factions = []

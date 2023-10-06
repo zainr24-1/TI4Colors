@@ -1,12 +1,12 @@
 FACTIONS = {
 	"The Arborec" : {
 		"red": 0,
-		"yellow" : 2,
+		"yellow" : 4,
 		"green" : 10,
 		"blue" : 0,
 		"purple" : 0,
-		"black" : 4,
-		"orange" : 1,
+		"black" : 1,
+		"orange" : 2,
 		"pink" : 0,
 	},
 	"The Argent Flight" : {
@@ -159,7 +159,7 @@ FACTIONS = {
 		"orange" : 0,
 		"pink" : 2,
 	},
-	"Sardakk Norr" : {
+	"Sardakk N'orr" : {
 		"red": 8,
 		"yellow" : 1,
 		"green" : 2,
